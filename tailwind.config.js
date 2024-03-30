@@ -38,7 +38,7 @@ module.exports = {
         dark: '#9dc20a',
         gray: '#c7cab9',
         grid: '#e4e7da',
-        black: '#2c2e23',
+        black: '#1c1d16',
         light: '#f6f7f3',
         verylight: '#f9faf6',
         darklight: '#a8aba0',
@@ -57,6 +57,47 @@ module.exports = {
       }
     },
     extend: {
+      colors: {
+        border: '#1c1d16',
+        input: '',
+        ring: '',
+        background: '',
+        foreground: '',
+        primary: {
+          DEFAULT: '#c7e64c',
+          foreground: '#1c1d16',
+        },
+        secondary: {
+          DEFAULT: '',
+          foreground: '',
+        },
+        destructive: {
+          DEFAULT: '#e6594c',
+          foreground: '#fff',
+        },
+        muted: {
+          DEFAULT: '',
+          foreground: '',
+        },
+        accent: {
+          DEFAULT: '',
+          foreground: '',
+        },
+        popover: {
+          DEFAULT: '#fff',
+          foreground: '#1c1d16',
+        },
+        card: {
+          DEFAULT: '',
+          foreground: '',
+        },
+      },
+      borderRadius: {
+        xl: 'calc(0px + 4px)',
+        lg: '0px',
+        md: 'calc(0px - 2px)',
+        sm: 'calc(0px - 4px)',
+      },
       keyframes: {
         "accordion-down": {
           from: { height: 0 },

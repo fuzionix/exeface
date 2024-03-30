@@ -4,14 +4,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
-@layer base {
-  
-}
-
-@layer components {
-  
-}
 
 :root {
   --grid-color: #e4e7da;
