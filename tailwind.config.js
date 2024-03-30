@@ -7,12 +7,12 @@ module.exports = {
   safelist: ["dark"],
   
   content: [
-    './pages/**/*.{js,jsx,vue}',
-    './components/**/*.{js,jsx,vue}',
-    './app/**/*.{js,jsx,vue}',
-    './src/**/*.{js,jsx,vue}',
+    './pages/**/*.{ts,tsx,vue}',
+    './components/**/*.{ts,tsx,vue}',
+    './app/**/*.{ts,tsx,vue}',
+    './src/**/*.{ts,tsx,vue}',
 	],
-  
+  prefix: "",
   theme: {
     container: {
       center: true,
@@ -57,21 +57,19 @@ module.exports = {
       }
     },
     extend: {
-      fontFamily: {
-        'sans': ['Plus Jakarta Sans', 'Sans-serif'],
-        'display': ['Stick No Bills', 'Arial', 'Sans-serif'],
-      },
-      boxShadow: {
-        'line': '0 -2px 0 #e4e7da',
-        'line-active': '0 -2px 0 #c3f20c',
-        'edge': '0 0 0 1px #c7cab9',
-        'edge-theme': '0 0 0 1px #bbde3c'
-      },
       keyframes: {
-        
+        "accordion-down": {
+          from: { height: 0 },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: 0 },
+        },
       },
       animation: {
-        
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
       },
     },
   },
