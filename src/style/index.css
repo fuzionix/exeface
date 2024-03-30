@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Stick+No+Bills:wght@200..800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ 
+@layer base {
+  
+}
+
+@layer components {
+  
+}
+
+:root {
+  --grid-color: #e4e7da;
+  --menu: 300px;
+  --info: 380px;
+  --header: 100px;
+  --chat: 75px;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', 'Sans-serif';
+}
+
+body > * {
+  position: relative;
+  min-height: 100vh;
+}
+
+.grid-background {
+  background: repeating-linear-gradient(90deg, var(--grid-color) 0, var(--grid-color) 1px, transparent 0, transparent 50%), repeating-linear-gradient(180deg, var(--grid-color) 0, var(--grid-color) 1px, transparent 0, transparent 50%);
+  background-size: 20em 20em;
+  background-color: #ffff;
+  background-position: center;
+  opacity: 1;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fff0;
+}
+
+::-webkit-scrollbar-thumb {
+  border: solid 3px transparent;
+  border-radius: 10px;
+  box-shadow: inset 0 0 10px 10px #e4e7da;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  border: solid 3px transparent;
+  box-shadow: inset 0 0 10px 10px #cdd2bb;
+}
+
+::selection {
+  background-color: #d5ec79;
+  color: black;
+}
