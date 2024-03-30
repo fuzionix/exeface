@@ -30,6 +30,10 @@ body > * {
   min-height: 100vh;
 }
 
+body h1 {
+  font-family: 'Stick No Bills', 'Sans-serif';
+}
+
 .grid-background {
   background: repeating-linear-gradient(90deg, var(--grid-color) 0, var(--grid-color) 1px, transparent 0, transparent 50%), repeating-linear-gradient(180deg, var(--grid-color) 0, var(--grid-color) 1px, transparent 0, transparent 50%);
   background-size: 20em 20em;

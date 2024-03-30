@@ -27,6 +27,19 @@
       </SelectContent>
     </Select>
 
+    <Button
+      @click="() => {
+        toast({
+          title: 'Scheduled: Catch up',
+          description: 'Friday, February 10, 2023 at 5:57 PM',
+        });
+      }"
+    >
+      Add to calendar
+    </Button>
+
+    <h1>An interface that directly execute AI generated function.</h1>
+
   </section>
 </template>
 
@@ -41,6 +54,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components_shadcn/ui/select'
+
+import { useToast } from '@/components_shadcn/ui/toast/use-toast'
 
 export default {
     name: 'Index',
@@ -58,7 +73,7 @@ export default {
     ],
     data() {
       return {
-
+        toast: useToast().toast
       }
     },
     computed: {
