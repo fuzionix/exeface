@@ -1,9 +1,10 @@
 <template>
-  <nav id="navigation-bar" class="absolute flex justify-between items-center z-20 w-full h-[75px] px-7 bg-white border-b border-theme-gray">
-    <div>
+  <nav id="navigation-bar" class="absolute flex justify-between items-center z-20 w-full h-[var(--header)] px-7 bg-white border-b border-theme-gray">
+    <div class="flex items-center">
       <router-link to="/">
-        <img src="" width="40" alt="exeface logo" class="w-10">
+        <img src="@/assets/logo/exeface_logo.svg" width="40" alt="exeface logo" class="w-10">
       </router-link>
+      <span class="ml-3 px-1 text-theme-black text-sm bg-theme-600 border border-theme-400">ALPHA</span>
     </div>
     <NavigationMenu class="hidden pl-[100px]" :class="breakpoint">
       <NavigationMenuList>

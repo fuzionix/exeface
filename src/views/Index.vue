@@ -1,45 +1,7 @@
 <template>
   <NavigationBar />
-  <section id="homepage" class="absolute w-full h-full overflow-hidden grid-background">
-    <h1 class="text-theme text-2xl">This is Home</h1>
-    <Select>
-      <SelectTrigger class="w-[180px]">
-        <SelectValue placeholder="Select a fruit" />
-      </SelectTrigger>
-      <SelectContent>
-        <SelectGroup>
-          <SelectLabel>Fruits</SelectLabel>
-          <SelectItem value="apple">
-            Apple
-          </SelectItem>
-          <SelectItem value="banana">
-            Banana
-          </SelectItem>
-          <SelectItem value="blueberry">
-            Blueberry
-          </SelectItem>
-          <SelectItem value="grapes">
-            Grapes
-          </SelectItem>
-          <SelectItem value="pineapple">
-            Pineapple
-          </SelectItem>
-        </SelectGroup>
-      </SelectContent>
-    </Select>
-
-    <Button
-      @click="() => {
-        toast({
-          title: 'Scheduled: Catch up',
-          description: 'Friday, February 10, 2023 at 5:57 PM',
-        });
-      }"
-    >
-      Add to calendar
-    </Button>
-
-    <h1>An interface that directly execute AI generated function.</h1>
+  <section id="homepage" class="absolute w-full h-full pt-[var(--header)] overflow-hidden grid-background">
+    
 
   </section>
 </template>
