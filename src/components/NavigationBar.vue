@@ -33,23 +33,23 @@
                   </router-link>
                 </NavigationMenuLink>
               </li>
-              <ListItem href="/docs" title="Randomize">
+              <ListItem href="/docs" title="What is ExeFace">
                 <template #icon>
-                  <Dices :size="iconSize" :strokeWidth="iconStroke" />
+                  <TentTree :size="iconSize" :strokeWidth="iconStroke" />
                 </template>
                 Re-usable components built using Radix UI and Tailwind CSS.
-              </ListItem>
-              <ListItem href="/docs/installation" title="Customize">
-                <template #icon>
-                  <SlidersHorizontal :size="iconSize" :strokeWidth="iconStroke" />
-                </template>
-                How to install dependencies and structure your app.
               </ListItem>
               <ListItem href="/docs/primitives/typography" title="Explore More">
                 <template #icon>
                   <Compass  :size="iconSize" :strokeWidth="iconStroke" />
                 </template>
                 Styles for headings, paragraphs, lists...etc
+              </ListItem>
+              <ListItem href="/docs/installation" title="About ExeFace">
+                <template #icon>
+                  <Info :size="iconSize" :strokeWidth="iconStroke" />
+                </template>
+                How to install dependencies and structure your app.
               </ListItem>
             </ul>
           </NavigationMenuContent>
@@ -104,15 +104,15 @@ import {
 import ListItem from '@/components/ListItem.vue'
 
 import { 
-  Dices,
-  SlidersHorizontal,
+  TentTree,
   Compass,
-  Swords,
-  Rocket,
-  MessageCircleHeart,
-  SearchSlash,
-  BookUser,
-  Ghost         
+  Info,
+  Type,
+  FileText,
+  Image,
+  Film,
+  AudioLines,
+  CodeXml         
 } from 'lucide-vue-next'
 
 export default {
@@ -126,15 +126,15 @@ export default {
       NavigationMenuTrigger,
       ListItem,
 
-      Dices,
-      SlidersHorizontal,
+      TentTree,
       Compass,
-      Swords,
-      Rocket,
-      MessageCircleHeart,
-      SearchSlash,
-      BookUser,
-      Ghost       
+      Info,
+      Type,
+      FileText,
+      Image,
+      Film,
+      AudioLines,
+      CodeXml       
     },
     props: {
       breakpoint: {
@@ -147,39 +147,39 @@ export default {
         iconStroke: 1.5,
         navigationItems: [
           {
-            title: 'Fantasy',
-            href: '/explore/fantasy',
-            icon: 'Swords',
+            title: 'Text Manipulation',
+            href: '/explore/text',
+            icon: 'Type',
             description: 'A modal dialog that interrupts the user with important content and expects a response.',
           },
           {
-            title: 'Science Fiction',
-            href: '/explore/science-fiction',
-            icon: 'Rocket',
+            title: 'Document',
+            href: '/explore/document',
+            icon: 'FileText',
             description: 'For sighted users to preview content available behind a link.',
           },
           {
-            title: 'Romance',
-            href: '/explore/romance',
-            icon: 'MessageCircleHeart',
+            title: 'Image Processing',
+            href: '/explore/image',
+            icon: 'Image',
             description: 'Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.',
           },
           {
-            title: 'Mystery',
-            href: '/explore/mystery',
-            icon: 'SearchSlash',
+            title: 'Video Processing',
+            href: '/explore/vidio',
+            icon: 'Film',
             description: 'Visually or semantically separates content.',
           },
           {
-            title: 'Historical Fiction',
-            href: '/explore/historical-fiction',
-            icon: 'BookUser',
+            title: 'Audio Manipulation',
+            href: '/explore/audio',
+            icon: 'AudioLines',
             description: 'A set of layered sections of content—known as tab panels—that are displayed one at a time.',
           },
           {
-            title: 'Horror',
-            href: '/explore/horror',
-            icon: 'Ghost',
+            title: 'Coding Snippet',
+            href: '/explore/coding',
+            icon: 'CodeXml',
             description: 'A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.',
           },
         ]
