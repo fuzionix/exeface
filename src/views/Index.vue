@@ -1,5 +1,6 @@
 <template>
-  <section id="homepage" class="homepage">
+  <NavigationBar />
+  <section id="homepage" class="absolute w-full h-full overflow-hidden grid-background">
     <h1 class="text-theme text-2xl">This is Home</h1>
     <Select>
       <SelectTrigger class="w-[180px]">
@@ -44,6 +45,7 @@
 </template>
 
 <script>
+import NavigationBar from '@/components/NavigationBar.vue'
 import { Button } from '@/components_shadcn/ui/button'
 import {
   Select,
@@ -60,6 +62,7 @@ import { useToast } from '@/components_shadcn/ui/toast/use-toast'
 export default {
     name: 'Index',
     components: {
+      NavigationBar,
       Button,
       Select,
       SelectContent,

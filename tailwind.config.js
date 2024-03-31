@@ -59,37 +59,37 @@ module.exports = {
     extend: {
       colors: {
         border: '#1c1d16',
-        input: '',
-        ring: '',
-        background: '',
-        foreground: '',
+        input: '#1c1d16',
+        ring: '#1c1d16',
+        background: '#fff',
+        foreground: '#1c1d16',
         primary: {
           DEFAULT: '#c7e64c',
           foreground: '#1c1d16',
         },
         secondary: {
-          DEFAULT: '',
-          foreground: '',
+          DEFAULT: '#c7e64c',
+          foreground: '#1c1d16',
         },
         destructive: {
           DEFAULT: '#e6594c',
           foreground: '#fff',
         },
         muted: {
-          DEFAULT: '',
-          foreground: '',
+          DEFAULT: '#c7e64c',
+          foreground: '#1c1d16',
         },
         accent: {
-          DEFAULT: '',
-          foreground: '',
+          DEFAULT: '#1c1d16',
+          foreground: '#fff',
         },
         popover: {
           DEFAULT: '#fff',
           foreground: '#1c1d16',
         },
         card: {
-          DEFAULT: '',
-          foreground: '',
+          DEFAULT: '#fff',
+          foreground: '#1c1d16',
         },
       },
       borderRadius: {
