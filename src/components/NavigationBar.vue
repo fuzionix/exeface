@@ -6,7 +6,7 @@
       </router-link>
       <span class="ml-3 px-1 text-theme-black text-sm bg-theme-600 border border-theme-400">ALPHA</span>
     </div>
-    <NavigationMenu class="hidden pl-[100px]" :class="breakpoint">
+    <NavigationMenu class="hidden pl-[30px]" :class="breakpoint">
       <NavigationMenuList>
         <NavigationMenuItem>
           <NavigationMenuTrigger class="bg-transparent">Getting started</NavigationMenuTrigger>
@@ -15,21 +15,20 @@
               <li class="row-span-3">
                 <NavigationMenuLink as-child>
                   <router-link
-                    class="relative flex h-full w-full select-none flex-col justify-end rounded-md overflow-hidden bg-theme-black p-6 no-underline outline-none"
+                    class="relative flex h-full w-full select-none flex-col justify-end rounded-md overflow-hidden bg-theme-600 p-6 no-underline outline-none"
                     to="/demo"
                   >
                     <img 
-                      src="" 
+                      src="@/assets/logo/exeface_logo.svg" 
                       class="absolute opacity-85
-                      top-[-25px] right-[-15px] h-[100px] w-[100px] rotate-[15deg]
-                      lg:top-[-25px] lg:left-[-25px] lg:h-[125px] lg:w-[125px] lg:-rotate-[15deg]"
+                      top-0 right-0 h-[50px] w-[50px]
+                      lg:top-6 lg:left-6 lg:h-[50px] lg:w-[50px]"
                     >
-                    <div class="mb-2 mt-4 text-lg font-medium text-theme-gridlight">
-                      Make Story
+                    <div class="mb-2 mt-4 text-lg font-medium text-theme-black">
+                      ExeFace
                     </div>
-                    <p class="text-sm leading-tight text-theme-gridlight">
-                      Beautifully designed components built with Radix UI and
-                      Tailwind CSS.
+                    <p class="text-sm leading-tight text-theme-black">
+                      An interface that directly execute AI generated function.
                     </p>
                   </router-link>
                 </NavigationMenuLink>

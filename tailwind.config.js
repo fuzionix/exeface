@@ -35,8 +35,8 @@ module.exports = {
       'theme': {
         DEFAULT: '#c7e64c',
         pale: '#e7fa9e',
-        dark: '#9dc20a',
-        gray: '#c7cab9',
+        dark: '#526205',
+        gray: '#2c2e23',
         grid: '#e4e7da',
         black: '#1c1d16',
         light: '#f6f7f3',
