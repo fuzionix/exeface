@@ -3,7 +3,7 @@
   <section 
     id="homepage" 
     class="w-full h-full min-h-[100vh] pt-[var(--header)] overflow-hidden grid-background"
-    :style="`background-position: center top ${scrollOffset}px;`"
+    :style="`background-position: center top ${scrollOffset['value']}px;`"
   >
     <section class="flex flex-col justify-center items-center p-6 w-full min-h-[calc(100vh-var(--header))]">
       <h5 class="mb-4 px-1 text-center text-theme-black bg-theme-600 border border-theme-400 md:text-lg">Executable Interface</h5>
@@ -42,10 +42,13 @@
     <section class="min-h-[100vh]">
     </section>
   </section>
+  <Footer />
 </template>
 
 <script>
 import NavigationBar from '@/components/NavigationBar.vue'
+import Footer from '@/components/Footer.vue'
+
 import { Button } from '@/components_shadcn/ui/button'
 import {
   Select,
@@ -65,6 +68,7 @@ export default {
     name: 'Index',
     components: {
       NavigationBar,
+      Footer,
       Sparkles,
       Button,
       Select,
@@ -81,8 +85,10 @@ export default {
       return {
         initInput: false,
         userTextInput: 'The longest way to win this war is to make a cake for the general.',
-        scrollOffset: 0,
-        scrollOffsetDepth: 0.25,
+        scrollOffset: {
+          value: 0,
+          depth: 0.25
+        },
         toast: useToast().toast
       }
     },
@@ -103,9 +109,9 @@ export default {
       },
       parallaxScroll(event) {
         try {
-          this.scrollOffset = Math.round(event.target.defaultView.pageYOffset * this.scrollOffsetDepth)
+          this.scrollOffset['value'] = Math.round(event.target.defaultView.pageYOffset * this.scrollOffset['depth'])
         } catch {
-          this.scrollOffset = 0
+          this.scrollOffset['value'] = 0
         }
       }
     }
