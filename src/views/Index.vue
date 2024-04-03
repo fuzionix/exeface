@@ -1,6 +1,10 @@
 <template>
   <NavigationBar />
-  <section id="homepage" class="w-full h-full min-h-[100vh] pt-[var(--header)] overflow-hidden grid-background">
+  <section 
+    id="homepage" 
+    class="w-full h-full min-h-[100vh] pt-[var(--header)] overflow-hidden grid-background"
+    :style="`background-position: center top ${scrollOffset}px;`"
+  >
     <section class="flex flex-col justify-center items-center p-6 w-full min-h-[calc(100vh-var(--header))]">
       <h5 class="mb-4 px-1 text-center text-theme-black bg-theme-600 border border-theme-400 md:text-lg">Executable Interface</h5>
       <h1 class="mb-8 max-w-[1024px] leading-[1.1] text-center text-[3rem] text-theme-gray font-extralight sm:text-[4rem] sm:leading-[1.2] md:text-[4.75rem]">An interface that directly execute AI generated function</h1>
@@ -77,8 +81,16 @@ export default {
       return {
         initInput: false,
         userTextInput: 'The longest way to win this war is to make a cake for the general.',
+        scrollOffset: 0,
+        scrollOffsetDepth: 0.25,
         toast: useToast().toast
       }
+    },
+    mounted() {
+      document.addEventListener('scroll', this.parallaxScroll)
+    },
+    unmounted() {
+      document.removeEventListener('scroll', this.parallaxScroll)
     },
     computed: {
     },
@@ -87,6 +99,13 @@ export default {
         if (!this.initInput) {
           this.userTextInput = ''
           this.initInput = true
+        }
+      },
+      parallaxScroll(event) {
+        try {
+          this.scrollOffset = Math.round(event.target.defaultView.pageYOffset * this.scrollOffsetDepth)
+        } catch {
+          this.scrollOffset = 0
         }
       }
     }
