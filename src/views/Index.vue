@@ -30,22 +30,27 @@
       <div 
         ref="chatbox"
         id="chat-input" 
-        class="h-[--chat] px-7 w-full max-w-[1024px] duration-500 delay-200 bg-theme-verylight border border-b-4 border-theme-dark shadow-line focus-within:shadow-line-active"
+        class="flex items-center min-h-[--chat] px-7 w-full max-w-[1024px] duration-500 delay-200 bg-theme-verylight border border-b-4 border-theme-dark shadow-line focus-within:shadow-line-active"
         :data-status="initPanel"
       >
-        <div id="input-frame" class="flex items-center h-full">
+        <div id="input-frame" class="flex flex-1 items-center h-full">
           <Sparkles :size="22" :strokeWidth="1" color="#1c1d16" class="hidden sm:block" />
           <div class="hidden h-5 border-r border-r-theme-gray/25 mx-7 sm:block"></div>
           <form action="/" method="" @submit.prevent="submitPrompt()" class="flex flex-1">
-            <input 
-              type="text" 
+            <textarea 
+              ref="chatboxInput"
               v-model.trim="userTextInput"
-              class="flex-1 pr-7 text-base text-theme-dark bg-transparent min-w-0 focus:outline-0" 
+              class="flex-1 h-auto pr-7 py-5 mr-7 text-base text-theme-dark bg-transparent min-w-0 resize-none focus:outline-0 data-[status=false]:whitespace-nowrap data-[status=false]:overflow-hidden data-[status=false]:text-ellipsis"
               placeholder="Type Something ..." 
               value=""
               enter-key-hint="send"
               @click="initTextBlock()"
+              @input="handleTextBlock($event)"
+              @keypress.enter="submitPrompt()"
+              rows="1"
+              :data-status="initInput"
             >
+            </textarea>
             <button type="submit" class="hover:opacity-75">
               <img src="@/assets/icon/voice.svg" class="w-6" alt="">
             </button>
@@ -129,28 +134,34 @@ export default {
           this.initInput = true
         }
       },
+      handleTextBlock(e) {
+        this.$refs.chatboxInput.style.height = `auto`
+        this.$refs.chatboxInput.style.height = `${e.srcElement.scrollHeight}px`
+      },
       submitPrompt() {
         this.transformPanel()
       },
       transformPanel() {
-        // STAGE 1: Fade out text element. Translate chatbox to top.
-        const chatbox = this.$refs.chatbox
-        const navHeight = parseInt(getComputedStyle(chatbox).getPropertyValue("--header").split("px")[0])
-        const chatboxDuration = parseFloat(getComputedStyle(chatbox).transitionDuration.split("s")[0])
-        const chatboxDelay = parseFloat(getComputedStyle(chatbox).transitionDelay.split("s")[0])
-        const chatboxMargin = 24 // 1.5rem
-        const chatboxTop = (Math.round(chatbox.getBoundingClientRect().top - navHeight - chatboxMargin)).toString()
-        const panelDelay = chatboxDuration + chatboxDelay
+        if (!this.initPanel) {
+          // STAGE 1: Fade out text element. Translate chatbox to top.
+          const chatbox = this.$refs.chatbox
+          const navHeight = parseInt(getComputedStyle(chatbox).getPropertyValue("--header").split("px")[0])
+          const chatboxDuration = parseFloat(getComputedStyle(chatbox).transitionDuration.split("s")[0])
+          const chatboxDelay = parseFloat(getComputedStyle(chatbox).transitionDelay.split("s")[0])
+          const chatboxMargin = 24 // 1.5rem
+          const chatboxTop = Math.round(chatbox.getBoundingClientRect().top - navHeight - chatboxMargin)
+          const panelDelay = chatboxDuration + chatboxDelay
 
-        this.initPanel = true
-        this.$refs.chatbox.style.transform = `translateY(-${chatboxTop}px)`
+          this.initPanel = true
+          chatbox.style.transform = `translateY(-${chatboxTop}px)`
 
-        // STAGE 2: Remove text element. Reposition chatbox seamlessly.
-        setTimeout(() => {
-          this.initPanelAfter = true
-          this.$refs.chatbox.style.transition = 'none'
-          this.$refs.chatbox.style.transform = ''
-        }, panelDelay * 1000)
+          // STAGE 2: Remove text element. Reposition chatbox seamlessly.
+          setTimeout(() => {
+            this.initPanelAfter = true
+            chatbox.style.transition = 'none'
+            chatbox.style.transform = ''
+          }, panelDelay * 1000)
+        }
       },
       parallaxScroll(event) {
         try {
