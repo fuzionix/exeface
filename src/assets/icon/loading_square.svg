@@ -1,0 +1,5 @@
+<svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="5" y="5" width="40" height="40" stroke="#2C2E23" stroke-width="10" stroke-linecap="square" stroke-dasharray="55 100" stroke-dashoffset="0">
+    <animate attributeName="stroke-dashoffset" calcMode="spline" dur="1.5" values="155;-155" keySplines="0 0 1 1" repeatCount="indefinite"></animate>
+  </rect>
+</svg>
