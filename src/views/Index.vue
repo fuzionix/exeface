@@ -30,7 +30,10 @@
       <div 
         ref="chatbox"
         id="chat-input" 
-        class="flex items-center min-h-[--chat] px-7 w-full max-w-[1024px] duration-500 delay-200 bg-theme-verylight border border-b-4 border-theme-dark shadow-line focus-within:shadow-line-active"
+        class="
+        relative flex items-center min-h-[--chat] px-7 w-full max-w-[1024px] duration-500 delay-200 bg-theme-verylight border border-b-4 border-theme-dark shadow-line focus-within:shadow-line-active 
+        data-[status=true]:before:opacity-0 before:absolute before:content-['SHIFT_+_ENTER_to_add_a_new_line'] before:-top-6 before:right-0 before:text-sm before:text-theme-dark before:duration-200
+        "
         :data-status="initPanel"
       >
         <div id="input-frame" class="flex flex-1 items-center h-full">
@@ -45,10 +48,13 @@
               value=""
               enter-key-hint="send"
               @click="initTextBlock()"
-              @input="handleTextBlock($event)"
-              @keypress.enter="submitPrompt()"
+              @input="handleTextBlock()"
+              @keydown.enter.exact="submitPrompt()"
               rows="1"
               :data-status="initInput"
+              data-gramm="false"
+              data-gramm_editor="false"
+              data-enable-grammarly="false"
             >
             </textarea>
             <button type="submit" class="hover:opacity-75">
@@ -114,7 +120,7 @@ export default {
         userTextInput: 'The longest way to win this war is to make a cake for the general.',
         scrollOffset: {
           value: 0,
-          depth: 0.25
+          depth: 0.35
         },
         toast: useToast().toast
       }
@@ -134,12 +140,21 @@ export default {
           this.initInput = true
         }
       },
-      handleTextBlock(e) {
-        this.$refs.chatboxInput.style.height = `auto`
-        this.$refs.chatboxInput.style.height = `${e.srcElement.scrollHeight}px`
+      handleTextBlock(submit = false) {
+        const chatboxInput = this.$refs.chatboxInput
+        if (submit === true) {
+          chatboxInput.value = this.userTextInput
+        }
+        chatboxInput.style.height = `auto`
+        chatboxInput.style.height = `${chatboxInput.scrollHeight}px`
       },
       submitPrompt() {
-        this.transformPanel()
+        if (this.userTextInput.length > 0) {
+          setTimeout(() => {
+            this.handleTextBlock(true)
+          }, 0)
+          this.transformPanel()
+        }
       },
       transformPanel() {
         if (!this.initPanel) {

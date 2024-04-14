@@ -36,6 +36,8 @@ body h1 {
 
 body ::placeholder {
   color: #52620577;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 ::-webkit-scrollbar {
