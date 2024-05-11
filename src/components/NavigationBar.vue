@@ -82,7 +82,7 @@
     <div class="">
       <a 
         class="flex items-center font-semibold border px-6 py-3 bg-white hover:bg-theme-verylight" 
-        href="https://github.com/TaylonChan/storompt" 
+        href="https://github.com/TaylonChan/exeface" 
         target="_blank"
       >
         <span class="text-sm pr-4">GITHUB</span>
@@ -177,7 +177,7 @@ export default {
             description: 'A set of layered sections of content—known as tab panels—that are displayed one at a time.',
           },
           {
-            title: 'Coding Snippet',
+            title: 'Developer',
             href: '/explore/coding',
             icon: 'CodeXml',
             description: 'A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.',
