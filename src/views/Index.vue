@@ -69,6 +69,7 @@
           </form>
         </div>
       </div>
+      <IOPanel></IOPanel>
     </section>
     <section class="min-h-[100vh]">
     </section>
@@ -77,10 +78,10 @@
 </template>
 
 <script>
+import IOPanel from '@/components/IOPanel.vue'
 import NavigationBar from '@/components/NavigationBar.vue'
 import Footer from '@/components/Footer.vue'
 
-import { Button } from '@/components_shadcn/ui/button'
 import {
   Select,
   SelectContent,
@@ -98,10 +99,10 @@ import { useToast } from '@/components_shadcn/ui/toast/use-toast'
 export default {
     name: 'Index',
     components: {
+      IOPanel,
       NavigationBar,
       Footer,
       Sparkles,
-      Button,
       Select,
       SelectContent,
       SelectGroup,

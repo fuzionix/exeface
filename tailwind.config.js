@@ -31,6 +31,7 @@ module.exports = {
       notice: '#d2cf35',
       accept: '#7ae54c',
       accent: '#4c64e5',
+      dangerdark: '#df301f',
 
       'theme': {
         DEFAULT: '#c7e64c',
